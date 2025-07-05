@@ -1,0 +1,161 @@
+/* ==================== site-login.css ==================== */
+@font-face {
+    font-family: 'Tajawal-Medium';
+    src: url('../fonts/Tajawal-Medium.ttf') format('truetype');
+}
+
+
+/* 1) خلفية الصفحة مع صورة حضارة العراق */
+body.login-page {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tajawal-Medium', sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden; /* إخفاء أي جزء زائد */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+
+    background: url('iraq-heritage.jpg') no-repeat center center;
+    background-size: cover; /* تغطي الشاشة */
+}
+
+/* طبقة معتمة فوق الصورة لتسهيل التباين */
+body.login-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); /* 40% شفافية */
+    z-index: 1;
+}
+
+/* 2) بطاقة تسجيل الدخول */
+.login-container {
+    position: relative;
+    z-index: 2; /* فوق الطبقة الشفافة */
+    max-width: 420px; /* حجم أقصى */
+    width: 90%;       /* نسبي في الشاشات الصغيرة */
+    background-color: rgba(255,255,255,0.85); /* خلفية شبه بيضاء */
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    padding: 30px 25px;
+    text-align: center;
+    color: #333; /* نص داكن للتباين مع الخلفية الفاتحة */
+}
+
+/* عنوان أو شعار */
+.login-logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #ffd700; /* ذهبي */
+}
+
+.subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+/* أيقونة كبيرة */
+.security-icon {
+    font-size: 3rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* حقول الإدخال */
+.form-control {
+    border-radius: 0.5rem;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+.form-control:focus {
+    background-color: #fff;
+    box-shadow: 0 0 0 0.15rem rgba(255,215,0,0.3); /* ظل ذهبي خفيف */
+    border: 1px solid #ffdd66;
+}
+
+/* زر اظهار/اخفاء كلمة المرور */
+.toggle-password {
+    cursor: pointer;
+    color: #999;
+}
+.toggle-password:hover {
+    color: #333;
+}
+
+/* زر تسجيل الدخول */
+.btn-login {
+    background: linear-gradient(to right, #aa771c, #ffbb00);
+    border: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* التذكّر + نسيت كلمة المرور */
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    justify-content: flex-start;
+    color: #333;
+}
+.forgot-link {
+    text-decoration: underline;
+    color: #666;
+}
+.forgot-link:hover {
+    color: #999;
+}
+
+/* رسائل الأخطاء */
+.text-danger {
+    color: #cc0000 !important;
+}
+
+/* ============= تحسينات Responsive عبر Media Queries ============= */
+
+/* شاشات متوسطة (أقل من 768px) */
+@media (max-width: 768px) {
+    .login-container {
+        max-width: 380px;
+        padding: 25px 20px;
+    }
+    .security-icon {
+        font-size: 2.5rem;
+    }
+    .login-logo {
+        font-size: 1.3rem;
+    }
+}
+
+/* شاشات أصغر (أقل من 576px) */
+@media (max-width: 576px) {
+    .login-container {
+        max-width: 340px;
+        padding: 20px 15px;
+    }
+    .security-icon {
+        font-size: 2rem;
+    }
+    .login-logo {
+        font-size: 1.2rem;
+    }
+    .subtitle {
+        font-size: 0.9rem;
+    }
+}
+
